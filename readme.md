@@ -1,0 +1,1 @@
+Detta är mitt slutprojekt för kursen wd-js där jag ska visa mina kunskaper som jag lärt mig dom senaste veckorna inom JS,CSS och HTML.
