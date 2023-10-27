@@ -1,24 +1,30 @@
 
 const BASE_URL = "https://majazocom.github.io/Data/solaris.json";
+let apikey;
 
 
-/* const fetchApiKey = async () => {
+const showBodies = async () => {
+    try {
 
-    const response = await fetch(`${BASE_URL}/keys`);
-    console.log(response);
-    const data = await response.json();
+        const response = await fetch(`${BASE_URL}`);
 
-    console.log(data);
-    return data;
+        const data = await response.json();
+        console.log(data);
 
-} */
+        if (!response.ok) {
+            throw new error("Failed to catch bodies");
+        }
 
-const showBodies = async()=>{
-    const response = await fetch(`${BASE_URL}` );
-    const data = await response.json();
+    }
 
-    console.log(data);
-
+    catch (error) {
+        console.error(error);
+    }
 }
 
+
+
 showBodies();
+
+/* fetchApiKey().then((data) => console.log(data.key)); */
+
