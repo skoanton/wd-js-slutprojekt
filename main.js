@@ -73,8 +73,9 @@ const createTitleElements = (planet,infoDiv) => {
 
     //Put concent inside titles
     title.textContent = planet.name;
-
     titleLatin.textContent = planet.latinName;
+
+    title.appendChild(titleLatin);
 
     radiusTitle.textContent = "Omkrets";
     distanceFromSunTitle.textContent = "km från solen";
@@ -83,15 +84,25 @@ const createTitleElements = (planet,infoDiv) => {
     moonsTitle.textContent = "Månar";
     
     description.textContent = planet.desc;
+
+    //Adding classes
+    title.setAttribute("class", "titles");
+    description.setAttribute("class","description");
+    radiusTitle.setAttribute("class", "radius");
+    distanceFromSunTitle.setAttribute("class", "distanceFromSun");
+    maxTempTitle.setAttribute("class", "maxTemp");
+    minTempTitle.setAttribute("class", "minTemp");
+    moonsTitle.setAttribute("class", "moons");
+
     // Add elements to site
 
     let elements = [radiusTitle,distanceFromSunTitle,maxTempTitle,minTempTitle,moonsTitle];
     dynamicTitles = elements;
-    elements = [title,titleLatin,description,radiusTitle,distanceFromSunTitle,maxTempTitle,minTempTitle,moonsTitle]
-    console.log("Dynmaic titles length", dynamicTitles.length);
+    elements = [title,description,radiusTitle,distanceFromSunTitle,maxTempTitle,minTempTitle,moonsTitle]
     addElementsToSite(elements,infoDiv);
 
 }
+
 
 const CreateDynamicElements = (planet) => {
 

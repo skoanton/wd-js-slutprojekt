@@ -6,9 +6,11 @@
     box-sizing: border-box;
 }
 
+/* General Styling */
+
+
 main{
     display: flex;
-    
     justify-content: space-between;
     align-items: center;
 }
@@ -22,7 +24,13 @@ main{
 
 }
 
-/* General Styling */
+.information{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+
 
 body{
     background-color: black;
@@ -55,6 +63,32 @@ header{
 .information {
     display: grid;
     grid-template-rows: repeat(2,1fr);
+    width: 33%;
+}
 
-    
+
+.titles{
+    grid-column: 1;
+}
+
+.description{
+    grid-column:  span 2;
+}
+
+.radius{
+    grid-column: 1/2;
+}
+.distanceFromSun{
+    grid-column: 2/3;
+}
+
+.maxTemp{
+    grid-column: 1/2;
+}
+.minTemp{
+    grid-column: 2/3;
+}
+
+.moons{
+    grid-column: 1;
 }
