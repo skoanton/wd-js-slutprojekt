@@ -51,3 +51,10 @@ header{
 .rings{
     position: relative;
 }
+
+.information {
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+
+    
+}

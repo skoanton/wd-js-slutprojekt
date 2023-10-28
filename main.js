@@ -2,6 +2,8 @@
 const BASE_URL = "https://majazocom.github.io/Data/solaris.json";
 let apikey;
 let dynamicTitles;
+let isShowingInfo = false;
+
 const main = document.querySelector("main");
 
 const sun = document.getElementById("0");
@@ -45,6 +47,14 @@ const hideStartSite = () => {
 
 
 
+}
+
+const showStartSite = () => {
+    const header = document.querySelector("header");
+    const planetBox = document.querySelector(".planet-box");
+    header.style.display = "block";
+    planetBox.style.display = "flex";
+    changeSubstract(0);
 }
 
 const createTitleElements = (planet,infoDiv) => {
@@ -149,22 +159,40 @@ changeSubstract = (id) => {
 
 const getPlanetInformation = async (id) => {
 
-    changeSubstract(id);
-    console.log(id);
-    hideStartSite();
 
-    let data = await fetchInformation();
-    const planet = data[id];
-    const infoDiv = document.createElement("div");
-    main.appendChild(infoDiv);
+  
+    if(isShowingInfo){
+        showStartSite();
+        const infoDiv = document.querySelector(".information");
+       while(infoDiv.hasChild){
+        infoDiv.removeChild(infoDiv.firstChild);
+       }
+        infoDiv.remove();
+        isShowingInfo = false;
+    }
 
-    createTitleElements(planet,infoDiv);
-    CreateDynamicElements(planet);
+    else{
+        isShowingInfo = true;
+        changeSubstract(id);
+        console.log(id);
+        hideStartSite();
+    
+        let data = await fetchInformation();
+        const planet = data[id];
+        const infoDiv = document.createElement("div");
+        main.appendChild(infoDiv);
+        infoDiv.setAttribute("class", "information");
+       
+    
+        createTitleElements(planet,infoDiv);
+        CreateDynamicElements(planet);
+    }
+    
 
 }
 
 
-sun.addEventListener("click", function () {   
+sun.addEventListener("click", function () {  
     getPlanetInformation(this.id)  
 });
 merkurius.addEventListener("click", function () {
