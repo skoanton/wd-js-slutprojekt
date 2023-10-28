@@ -104,7 +104,7 @@ const CreateDynamicElements = (planet) => {
      const minTemp = document.createElement("p");
      const moons = document.createElement("ul");
  
-     if (planet.moons > 1) {
+     if (planet.moons.length >= 1) {
         for (const moon of planet.moons) {
             const moonLi = document.createElement("li");
             moonLi.textContent = moon;
