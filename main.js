@@ -41,7 +41,7 @@ fetchInformation();
 
 const hideStartSite = () => {
 
-    const header = document.querySelector("header");
+    const header = document.querySelector(".title-box");
     const planetBox = document.querySelector(".planet-box");
     header.style.display = "none";
     planetBox.style.display = "none";
@@ -51,15 +51,26 @@ const hideStartSite = () => {
 }
 
 const showStartSite = () => {
-    const header = document.querySelector("header");
+    const header = document.querySelector(".title-box");
     const planetBox = document.querySelector(".planet-box");
-    header.style.display = "block";
+    header.style.display = "flex";
     planetBox.style.display = "flex";
     changeSubstract(0);
 }
 
+
+const removeInfoInMoon = (moons) => {
+    console.log(moons);
+    while(moons.hasChild){
+        console.log("removing moons");
+     moons.removeChild(infoDiv.firstChild);
+    }
+}
+
 const addInformation = (planet) =>{
     
+    document.getElementById("title").textContent = planet.name;
+    document.getElementById("title-latin").textContent = planet.latinName;
     document.getElementById("radius").textContent = planet.circumference;
     document.getElementById("description").textContent = planet.desc;
     document.getElementById("distanceFromSun").textContent  = planet.distance;
@@ -68,6 +79,10 @@ const addInformation = (planet) =>{
     document.getElementById("maxTemp").textContent = planet.temp.day;
 
     const moonsUl = document.getElementById("moons");
+
+    removeInfoInMoon(moonsUl);
+
+
 
     if (planet.moons.length >= 1) {
         for (const moon of planet.moons) {

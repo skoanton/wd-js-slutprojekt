@@ -7,6 +7,13 @@
     <title>Solaris</title>
 
 
+    <!-- Google Fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Lora&family=Merriweather:wght@300&family=Roboto+Condensed:wght@300&family=Secular+One&display=swap" rel="stylesheet">
+
+
     <!--My css-->
     <link rel="stylesheet" href="style.css">
 
@@ -14,38 +21,40 @@
 
 <body>
     <header>
-        <h1 class="title">Solsystemet</h1>
-        <h2 class="title-latin" ">Solaris</h2>
+        <div class="title-box">
+            <h1 class="title">Solsystemet</h1>
+            <h2 class="title-latin">Solaris</h2>
+        </div>
+            
+        
     </header>
 
-    <main>
-        
 
-       
-            <picture class="subtract">
-                <img id="0" src="./images/Subtract_0.svg" alt="Picture of  ">
-            </picture>
+    <picture class="subtract">
+        <img id="0" src="./images/Subtract_0.svg" alt="Picture of  ">
+    </picture>
 
-            <!-- <img id="0" src="./images/Subtract.svg" alt=""> -->
 
+
+    <main>      
             <div class="planet-box flexbox-container">
-                <picture>
+                <picture class ="mercury" >
                     <img id="1" src="./images/Ellipse 1.svg" alt="Picture of  ">
                 </picture>
 
-                <picture>
+                <picture class="venus">
                     <img id="2" src="./images/Ellipse 2.svg" alt="Picture of  ">
                 </picture>
-                <picture>
+                <picture class="earth">
                     <img id="3" src="./images/Ellipse 3.svg" alt="Picture of Earth  ">
                 </picture>
-                <picture>
+                <picture class="mars">
                     <img id="4" src="./images/Ellipse 4.svg" alt="Picture of  ">
                 </picture>
-                <picture>
+                <picture class ="jupiter">
                     <img id="5" src="./images/Ellipse 5.svg" alt="Picture of  ">
                 </picture>
-                <picture>
+                <picture class ="saturn">
                    
                     <img id="6" src="./images/Ellipse 6.svg" alt="Picture of  ">
                     <img class="rings" src="./images/Ellipse 6_1.svg" alt="Picture of  ">
@@ -54,38 +63,31 @@
                     </picture>
 
                 </picture>
-                <picture>
+                <picture class="uranus">
                     <img id="7" src="./images/Ellipse 7.svg" alt="Picture of  ">
                 </picture>
-                <picture>
+                <picture class="neptune">
                     <img id="8" src="./images/Ellipse 8.svg" alt="Picture of  ">
                 </picture>
 
 
 
-            </div>
-
-
-
-            
+            </div>         
 
             </main>
             <div class="information-module">
                 <div class="titles">
                     <h1 id="title" class="title">
-                        Jorden
                     </h1>
-                    <h2 id="title-latin"">Tellus</h2>
+                    <h2 id="title-latin" class="title-latin"></h2>
                 </div>
                 
 
                 <div class="description">
-                    <p id="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                         Minus ea quia recusandae atque quaerat dicta maiores? Culpa, quae, ab fugiat
-                          iste voluptatem mollitia consequuntur perferendis repellendus, incidunt aspernatur illum ad!</p>
+                    <p id="description"></p>
                 </div>
                 
-                <span class="underline">--------</span>
+                <hr class="line">
 
                 <div class="radius">
                     <h3>Omkrets</h3>
@@ -109,9 +111,9 @@
                 </class>
                 
 
-                <span class="underline">--------</span>
+                <hr class="line">
 
-                <div class="moons">
+                <div class="moons-title">
                     <h3>Månar</h3>
                     <ul id="moons"></ul>
                 </div>
