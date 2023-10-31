@@ -4,6 +4,7 @@ let apikey;
 let dynamicTitles;
 let isShowingInfo = false;
 
+const infoModule = document.querySelector(".information-module");
 const main = document.querySelector("main");
 
 const sun = document.getElementById("0");
@@ -57,107 +58,33 @@ const showStartSite = () => {
     changeSubstract(0);
 }
 
-const createTitleElements = (planet,infoDiv) => {
-    console.log("Creating Static Elements");
-    const title = document.createElement("h1");
-
-    const titleLatin = document.createElement("h2");
+const addInformation = (planet) =>{
     
-    const radiusTitle = document.createElement("h3");
-    const distanceFromSunTitle = document.createElement("h3");
-    const maxTempTitle = document.createElement("h3");
-    const minTempTitle = document.createElement("h3");
-    const moonsTitle = document.createElement("h3");
+    document.getElementById("radius").textContent = planet.circumference;
+    document.getElementById("description").textContent = planet.desc;
+    document.getElementById("distanceFromSun").textContent  = planet.distance;
+    document.getElementById("maxTemp").textContent = planet.temp.day;
+    document.getElementById("minTemp").textContent = planet.temp.night;
+    document.getElementById("maxTemp").textContent = planet.temp.day;
 
-    const description = document.createElement("p");
+    const moonsUl = document.getElementById("moons");
 
-    //Put concent inside titles
-    title.textContent = planet.name;
-    titleLatin.textContent = planet.latinName;
-
-    title.appendChild(titleLatin);
-
-    radiusTitle.textContent = "Omkrets";
-    distanceFromSunTitle.textContent = "km från solen";
-    maxTempTitle.textContent = "max tempratur";
-    minTempTitle.textContent = "min tempratur";
-    moonsTitle.textContent = "Månar";
-    
-    description.textContent = planet.desc;
-
-    //Adding classes
-    title.setAttribute("class", "titles");
-    description.setAttribute("class","description");
-    radiusTitle.setAttribute("class", "radius");
-    distanceFromSunTitle.setAttribute("class", "distanceFromSun");
-    maxTempTitle.setAttribute("class", "maxTemp");
-    minTempTitle.setAttribute("class", "minTemp");
-    moonsTitle.setAttribute("class", "moons");
-
-    // Add elements to site
-
-    let elements = [radiusTitle,distanceFromSunTitle,maxTempTitle,minTempTitle,moonsTitle];
-    dynamicTitles = elements;
-    elements = [title,description,radiusTitle,distanceFromSunTitle,maxTempTitle,minTempTitle,moonsTitle]
-    addElementsToSite(elements,infoDiv);
-
-}
-
-
-const CreateDynamicElements = (planet) => {
-
-    console.log("Creating Dynamic Elements");
-     // Create dynamic elements for information
-     
-     const radius = document.createElement("p");
-     const distanceFromSun = document.createElement("p");
-     const maxTemp = document.createElement("p");
-     const minTemp = document.createElement("p");
-     const moons = document.createElement("ul");
- 
-     if (planet.moons.length >= 1) {
+    if (planet.moons.length >= 1) {
         for (const moon of planet.moons) {
             const moonLi = document.createElement("li");
             moonLi.textContent = moon;
-            moons.appendChild(moonLi);
+            moonsUl.appendChild(moonLi);
         }
         
     }
     else{
          const moonLi = document.createElement("p");
-         moonLi.textContent ="None";
-         moons.appendChild(moonLi);   
+         moonLi.textContent ="Inga månar";
+         moonsUl.appendChild(moonLi);   
     }
- 
-     // Add dynamic values to elements
-     radius.textContent = planet.circumference;
-     distanceFromSun.textContent = planet.distance;
-     maxTemp.textContent = planet.temp.day;
-     minTemp.textContent = planet.temp.night;
-
-
-     const elements = [radius,distanceFromSun,maxTemp,minTemp,moons];
-     addElementsToSite(elements,dynamicTitles);
 
 }
 
-const addElementsToSite = (elements,parents) =>{
-
-    if(parents.length > 1){
-        for(let i = 0; i<parents.length;i++){
-            console.log("Appending",parents[i], "to",elements[i]);
-            parents[i].appendChild(elements[i]);
-        }
-    }
-    else{
-        console.log("no Object");
-        elements.forEach(element => {
-            parents.appendChild(element);
-        });
-    }
-    
-
-}
 
 changeSubstract = (id) => {
    
@@ -174,11 +101,7 @@ const getPlanetInformation = async (id) => {
   
     if(isShowingInfo){
         showStartSite();
-        const infoDiv = document.querySelector(".information");
-       while(infoDiv.hasChild){
-        infoDiv.removeChild(infoDiv.firstChild);
-       }
-        infoDiv.remove();
+        infoModule.style.display ="none";
         isShowingInfo = false;
     }
 
@@ -190,13 +113,10 @@ const getPlanetInformation = async (id) => {
     
         let data = await fetchInformation();
         const planet = data[id];
-        const infoDiv = document.createElement("div");
-        main.appendChild(infoDiv);
-        infoDiv.setAttribute("class", "information");
        
-    
-        createTitleElements(planet,infoDiv);
-        CreateDynamicElements(planet);
+        addInformation(planet);
+        infoModule.style.display ="grid";
+
     }
     
 

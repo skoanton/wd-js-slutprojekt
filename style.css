@@ -17,17 +17,17 @@ main{
 
 .flexbox-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap:5rem;
 
 
 }
 
 .information{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-
+    grid-template-rows: repeat(2,1fr);
+    background-color: red;
+    max-width: 500px;
 }
 
 
@@ -40,31 +40,22 @@ body{
 }
 
 header{
-   text-align: end;
-   
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
 }
 
 .planet-box{
-    width: 1168px;
-    height: 188px; 
     flex-grow: 1;
-}
-
-.subtract{
-
-    width: 118px;
-    height: 740.12px;
-}
+} 
 
 .rings{
-    position: relative;
+   position: absolute;
+   top: 460px;
+   left: 1350px;
 }
 
-.information {
-    display: grid;
-    grid-template-rows: repeat(2,1fr);
-    width: 33%;
-}
+
 
 
 .titles{
@@ -91,4 +82,19 @@ header{
 
 .moons{
     grid-column: 1;
+}
+
+
+
+/* Testing */
+
+.information-module{
+     background-color: red;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     display: none;
+     grid-template-rows: repeat(2,1fr);
+
 }
