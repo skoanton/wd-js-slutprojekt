@@ -11,7 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Lora&family=Merriweather:wght@300&family=Roboto+Condensed:wght@300&family=Secular+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Lora&family=Merriweather:wght@300&family=Roboto+Condensed:wght@300&family=Secular+One&display=swap"
+        rel="stylesheet">
 
 
     <!--My css-->
@@ -20,14 +22,17 @@
 </head>
 
 <body>
+
+
     <header>
         <div class="title-box">
             <h1 class="title">Solsystemet</h1>
             <h2 class="title-latin">Solaris</h2>
         </div>
-            
-        
+
+
     </header>
+
 
 
     <picture class="subtract">
@@ -35,93 +40,104 @@
     </picture>
 
 
+    <main>
+        <div class="planet-box flexbox-container">
+            <picture id ="1">
+                <img src="./images/Ellipse 1.svg" alt="Picture of  ">
+            </picture>
 
-    <main>      
-            <div class="planet-box flexbox-container">
-                <picture class ="mercury" >
-                    <img id="1" src="./images/Ellipse 1.svg" alt="Picture of  ">
-                </picture>
+            <picture id="2">
+                <img src="./images/Ellipse 2.svg" alt="Picture of  ">
+            </picture>
+            <picture id="3">
+                <img  src="./images/Ellipse 3.svg" alt="Picture of Earth  ">
+            </picture>
+            <picture id="4">
+                <img src="./images/Ellipse 4.svg" alt="Picture of  ">
+            </picture>
+            <picture id="5">
+                <img src="./images/Ellipse 5.svg" alt="Picture of  ">
+            </picture>
+            <picture class="saturn" id="6">
+                <img class="rings" src="./images/Ellipse 6_1.svg" alt="Picture of  ">
+                <img src="./images/Ellipse 6.svg" alt="Picture of  ">
 
-                <picture class="venus">
-                    <img id="2" src="./images/Ellipse 2.svg" alt="Picture of  ">
-                </picture>
-                <picture class="earth">
-                    <img id="3" src="./images/Ellipse 3.svg" alt="Picture of Earth  ">
-                </picture>
-                <picture class="mars">
-                    <img id="4" src="./images/Ellipse 4.svg" alt="Picture of  ">
-                </picture>
-                <picture class ="jupiter">
-                    <img id="5" src="./images/Ellipse 5.svg" alt="Picture of  ">
-                </picture>
-                <picture class ="saturn">
-                   
-                    <img id="6" src="./images/Ellipse 6.svg" alt="Picture of  ">
-                    <img class="rings" src="./images/Ellipse 6_1.svg" alt="Picture of  ">
-                    <picture class="rings">
-
-                    </picture>
-
-                </picture>
-                <picture class="uranus">
-                    <img id="7" src="./images/Ellipse 7.svg" alt="Picture of  ">
-                </picture>
-                <picture class="neptune">
-                    <img id="8" src="./images/Ellipse 8.svg" alt="Picture of  ">
-                </picture>
+            </picture>
+            <picture id="7">
+                <img  src="./images/Ellipse 7.svg" alt="Picture of  ">
+            </picture>
+            <picture id="8">
+                <img  src="./images/Ellipse 8.svg" alt="Picture of  ">
+            </picture>
 
 
 
-            </div>         
+        </div>
 
-            </main>
-            <div class="information-module">
-                <div class="titles">
-                    <h1 id="title" class="title">
-                    </h1>
-                    <h2 id="title-latin" class="title-latin"></h2>
-                </div>
-                
+    </main>
 
-                <div class="description">
-                    <p id="description"></p>
-                </div>
-                
-                <hr class="line">
+    <div id="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div> 
+    </div>
 
-                <div class="radius">
-                    <h3>Omkrets</h3>
-                    <h3 id="radius">123</h3>
-                </div>
+    <div class="information-module">
 
-                
-                <div class="distanceFromSun">
-                    <h3>km från solen</h3>
-                    <h3 id="distanceFromSun">123</h3>
-                </div>
-                
-                <div class="maxTemp">
-                    <h3>max tempratur</h3>
-                    <h3 id="maxTemp">123</h3>
-                </div>
-                
-                <class class="minTemp">
-                    <h3>min tempratur</h3>
-                    <h3 id="minTemp"></h3>
-                </class>
-                
 
-                <hr class="line">
+        <div class="titles">
+            <h1 id="title" class="title">
+            </h1>
+            <h2 id="title-latin" class="title-latin"></h2>
+        </div>
 
-                <div class="moons-title">
-                    <h3>Månar</h3>
-                    <ul id="moons"></ul>
-                </div>
-                
 
-            </div>
-            <!--Script file-->
-            <script src="main.js" defer></script>
+        <div class="description">
+            <p id="description"></p>
+        </div>
+
+        <hr class="line">
+
+        <div class="radius">
+            <h3>Omkrets</h3>
+            <h3 id="radius"></h3>
+        </div>
+
+
+        <div class="distanceFromSun">
+            <h3>km från solen</h3>
+            <h3 id="distanceFromSun"></h3>
+        </div>
+
+        <div class="maxTemp">
+            <h3>max tempratur</h3>
+            <h3 id="maxTemp"></h3>
+        </div>
+
+        <class class="minTemp">
+            <h3>min tempratur</h3>
+            <h3 id="minTemp"></h3>
+        </class>
+
+
+        <hr class="line">
+
+        <div class="moons-title">
+            <h3>Månar</h3>
+            <!--  <ul id="moons"></ul> -->
+            <!-- <table id="moons">
+            </table> -->
+            <p id="moons"></p>
+        </div>
+
+
+    </div>
+
+
+    <!--Script file-->
+    <script src="main.js" defer></script>
 </body>
 
 </html>

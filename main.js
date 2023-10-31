@@ -8,14 +8,14 @@ const infoModule = document.querySelector(".information-module");
 const main = document.querySelector("main");
 
 const sun = document.getElementById("0");
-const merkurius = document.getElementById("1");
+const mercury = document.getElementById("1");
 const venus = document.getElementById("2");
 const earth = document.getElementById("3");
 const mars = document.getElementById("4");
 const jupiter = document.getElementById("5");
-const saturnus = document.getElementById("6");
+const saturn = document.getElementById("6");
 const uranus = document.getElementById("7");
-const Neptunus = document.getElementById("8");
+const neptune = document.getElementById("8");
 
 const fetchInformation = async () => {
     try {
@@ -34,8 +34,21 @@ const fetchInformation = async () => {
         console.error(error);
     }
 
-
 }
+
+ const showStars = () =>{
+    
+    const spaceDiv = document.getElementById("space");
+    spaceDiv.style.display = "block"
+    console.log(document.getElementById("space"));
+    console.log("visar stjärnor");
+
+} 
+
+const hideStars = ()=> {
+    document.getElementById("space").style.display = "none";
+}
+
 
 fetchInformation();
 
@@ -44,10 +57,10 @@ const hideStartSite = () => {
     const header = document.querySelector(".title-box");
     const planetBox = document.querySelector(".planet-box");
     header.style.display = "none";
-    planetBox.style.display = "none";
+    planetBox.style.display = "none"
 
-
-
+   showStars();
+    
 }
 
 const showStartSite = () => {
@@ -56,56 +69,59 @@ const showStartSite = () => {
     header.style.display = "flex";
     planetBox.style.display = "flex";
     changeSubstract(0);
+   hideStars();
 }
 
 
 const removeInfoInMoon = (moons) => {
-    console.log(moons);
-    while(moons.hasChild){
+    console.log(moons.hasChild);
+    while (moons.firstChild) {
         console.log("removing moons");
-     moons.removeChild(infoDiv.firstChild);
+        moons.removeChild(moons.firstChild);
     }
 }
 
-const addInformation = (planet) =>{
-    
+const addInformation = (planet) => {
+
     document.getElementById("title").textContent = planet.name;
     document.getElementById("title-latin").textContent = planet.latinName;
-    document.getElementById("radius").textContent = planet.circumference;
+    document.getElementById("radius").textContent = `${planet.circumference.toLocaleString()} km`;
     document.getElementById("description").textContent = planet.desc;
-    document.getElementById("distanceFromSun").textContent  = planet.distance;
-    document.getElementById("maxTemp").textContent = planet.temp.day;
-    document.getElementById("minTemp").textContent = planet.temp.night;
-    document.getElementById("maxTemp").textContent = planet.temp.day;
+    document.getElementById("distanceFromSun").textContent = `${planet.distance.toLocaleString()} km`;
+    document.getElementById("maxTemp").textContent = `${planet.temp.day}C`;
+    document.getElementById("minTemp").textContent = `${planet.temp.night}C`;
 
-    const moonsUl = document.getElementById("moons");
+    
 
-    removeInfoInMoon(moonsUl);
-
-
-
-    if (planet.moons.length >= 1) {
-        for (const moon of planet.moons) {
-            const moonLi = document.createElement("li");
-            moonLi.textContent = moon;
-            moonsUl.appendChild(moonLi);
+    const moonsP = document.getElementById("moons");
+    moonsP.textContent="";
+    let currentRow = 0;
+    
+    for (const moon of planet.moons){
+        if(currentRow > 5){
+            moonsP.textContent += " ";
+            
+            currentRow = 0;
+        }
+        else{
+            moonsP.textContent += `${moon}, `;
+            currentRow++;
         }
         
     }
-    else{
-         const moonLi = document.createElement("p");
-         moonLi.textContent ="Inga månar";
-         moonsUl.appendChild(moonLi);   
-    }
+
+
+
+
 
 }
 
 
 changeSubstract = (id) => {
-   
+
     let path = `./images/Subtract_${id}.svg`;
     console.log(path);
-    sun.setAttribute("src",path)
+    sun.setAttribute("src", path)
 
 
 }
@@ -113,61 +129,67 @@ changeSubstract = (id) => {
 const getPlanetInformation = async (id) => {
 
 
-  
-    if(isShowingInfo){
+
+    if (isShowingInfo) {
         showStartSite();
-        infoModule.style.display ="none";
+        infoModule.style.display = "none";
         isShowingInfo = false;
     }
 
-    else{
+    else {
         isShowingInfo = true;
         changeSubstract(id);
         console.log(id);
         hideStartSite();
-    
+
         let data = await fetchInformation();
         const planet = data[id];
-       
+
         addInformation(planet);
-        infoModule.style.display ="grid";
+        infoModule.style.display = "grid";
 
     }
-    
+
 
 }
 
 
-sun.addEventListener("click", function () {  
-    getPlanetInformation(this.id)  
+sun.addEventListener("click", function () {
+    getPlanetInformation(this.id)
 });
-merkurius.addEventListener("click", function () {
+mercury.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
 venus.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
 
 earth.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
 mars.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
 jupiter.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
+
+saturn.addEventListener("click", function () {
+    getPlanetInformation(this.id);
+
+});
+
 uranus.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
-Neptunus.addEventListener("click", function () {
+neptune.addEventListener("click", function () {
     getPlanetInformation(this.id);
-    
+
 });
 
