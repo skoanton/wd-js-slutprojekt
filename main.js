@@ -50,7 +50,7 @@ const hideStars = () => {
 const hideStartSite = () => {
 
     const header = document.querySelector(".title-box");
-    const planetBox = document.querySelector(".planet-box");
+    const planetBox = document.getElementById("planet-box");
     header.style.display = "none";
     planetBox.style.display = "none"
 
@@ -60,7 +60,7 @@ const hideStartSite = () => {
 
 const showStartSite = () => {
     const header = document.querySelector(".title-box");
-    const planetBox = document.querySelector(".planet-box");
+    const planetBox = document.getElementById("planet-box");
     header.style.display = "flex";
     planetBox.style.display = "flex";
     changeSubstract(0);
