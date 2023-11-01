@@ -56,10 +56,33 @@ padding: 0.225rem;
 }
 
 .subtract{
+    position: relative;
     grid-column: 1;
     grid-row: 1/5;
     width: 12.5rem;
 }
+
+.sun{
+    position: absolute;
+    top: 90px;
+    left: -700px;
+    width: 800px;
+    height: 800px;
+    background-color:#FFD029;
+    border-radius: 50%;
+}
+.first-shadow{
+    left: -650px;
+    opacity: 50%;
+    display: none;
+}
+
+.second-shadow{
+    left: -600px;
+    opacity: 20%;
+    display: none;
+}
+
 
 h3{
     font-family: 'Secular One', sans-serif;
