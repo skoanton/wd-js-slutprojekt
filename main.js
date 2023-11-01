@@ -21,7 +21,6 @@ const fetchInformation = async () => {
     try {
 
         const response = await fetch(`${BASE_URL}`);
-
         const data = await response.json();
         if (!response.ok) {
             throw new error("Failed to catch bodies");
@@ -89,6 +88,8 @@ const addMoonInfo = (planet) =>{
 
 
 const addInformation = (planet) => {
+
+    //ToLocaleString formats the numbers to a nicer number
 
     document.getElementById("title").textContent = planet.name;
     document.getElementById("title-latin").textContent = planet.latinName;
