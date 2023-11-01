@@ -1,11 +1,8 @@
 
 const BASE_URL = "https://majazocom.github.io/Data/solaris.json";
-let apikey;
-let dynamicTitles;
 let isShowingInfo = false;
 
 const infoModule = document.querySelector(".information-module");
-const main = document.querySelector("main");
 
 const sun = document.getElementById("0");
 const mercury = document.getElementById("1");
@@ -17,13 +14,15 @@ const saturn = document.getElementById("6");
 const uranus = document.getElementById("7");
 const neptune = document.getElementById("8");
 
+
+// Fetching information from api
+
 const fetchInformation = async () => {
     try {
 
         const response = await fetch(`${BASE_URL}`);
 
         const data = await response.json();
-        console.log(data);
         if (!response.ok) {
             throw new error("Failed to catch bodies");
         }
@@ -40,8 +39,6 @@ const showStars = () => {
 
     const spaceDiv = document.getElementById("space");
     spaceDiv.style.display = "block"
-    console.log(document.getElementById("space"));
-    console.log("visar stjärnor");
 
 }
 
@@ -50,15 +47,12 @@ const hideStars = () => {
 }
 
 
-fetchInformation();
-
 const hideStartSite = () => {
 
     const header = document.querySelector(".title-box");
     const planetBox = document.querySelector(".planet-box");
     header.style.display = "none";
     planetBox.style.display = "none"
-
 
     showStars();
 
@@ -74,26 +68,7 @@ const showStartSite = () => {
 }
 
 
-const removeInfoInMoon = (moons) => {
-    console.log(moons.hasChild);
-    while (moons.firstChild) {
-        console.log("removing moons");
-        moons.removeChild(moons.firstChild);
-    }
-}
-
-const addInformation = (planet) => {
-
-    document.getElementById("title").textContent = planet.name;
-    document.getElementById("title-latin").textContent = planet.latinName;
-    document.getElementById("radius").textContent = `${planet.circumference.toLocaleString()} km`;
-    document.getElementById("description").textContent = planet.desc;
-    document.getElementById("distanceFromSun").textContent = `${planet.distance.toLocaleString()} km`;
-    document.getElementById("maxTemp").textContent = `${planet.temp.day}C`;
-    document.getElementById("minTemp").textContent = `${planet.temp.night}C`;
-
-
-
+const addMoonInfo = (planet) =>{
     const moonsP = document.getElementById("moons");
     moonsP.textContent = "";
     let currentRow = 0;
@@ -110,114 +85,114 @@ const addInformation = (planet) => {
         }
 
     }
-
-
-
-
-
 }
 
 
+const addInformation = (planet) => {
+
+    document.getElementById("title").textContent = planet.name;
+    document.getElementById("title-latin").textContent = planet.latinName;
+    document.getElementById("radius").textContent = `${planet.circumference.toLocaleString()} km`;
+    document.getElementById("description").textContent = planet.desc;
+    document.getElementById("distanceFromSun").textContent = `${planet.distance.toLocaleString()} km`;
+    document.getElementById("maxTemp").textContent = `${planet.temp.day}C`;
+    document.getElementById("minTemp").textContent = `${planet.temp.night}C`;
+
+    addMoonInfo(planet);
+
+}
+
+// Chaning color and adding shadow on left planet when clicking on planet
 changeSubstract = (id) => {
 
     const planets = document.getElementById(0);
-    console.log("Chaning substract on",planets);
 
     switch (Number(id)) {
         case 0:
-            for(let i = 0; i<planets.children.length; i++){
+            for (let i = 0; i < planets.children.length; i++) {
                 planets.children[i].style.backgroundColor = "#FFD029";
-                if(i != 0){
+                if (i != 0) {
                     planets.children[i].style.display = "none";
                 }
             }
-           
+
             break;
 
         case 1:
-            console.log("chaning id", id);
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#888888";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
 
-            case 2:
+        case 2:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#E7CDCD";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 3:
+        case 3:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#428ED4";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 4:
+        case 4:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#EF5F5F";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 5:
+        case 5:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#E29468";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 6:
+        case 6:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#C7AA72";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 7:
+        case 7:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#C9D4F1";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
 
             break;
-            case 8:
+        case 8:
 
             for (const planet of planets.children) {
                 planet.style.backgroundColor = "#7A91A7";
-                if(window.getComputedStyle(planet).display === "none"){
-                    console.log("Activating shadow");
+                if (window.getComputedStyle(planet).display === "none") {
                     planet.style.display = "block";
                 }
             }
@@ -225,16 +200,12 @@ changeSubstract = (id) => {
             break;
 
         default:
-            console.log("Someting went wrong");
+            console.log("Someting went wrong when chaning color and adding shadows");
     }
-
-
-
 
 }
 
 const getPlanetInformation = async (id) => {
-
 
 
     if (isShowingInfo) {
@@ -246,7 +217,6 @@ const getPlanetInformation = async (id) => {
     else {
         isShowingInfo = true;
         changeSubstract(id);
-        console.log(id);
         hideStartSite();
 
         let data = await fetchInformation();
