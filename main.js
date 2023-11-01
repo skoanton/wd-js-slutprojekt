@@ -14,7 +14,6 @@ const saturn = document.getElementById("6");
 const uranus = document.getElementById("7");
 const neptune = document.getElementById("8");
 
-
 // Fetching information from api
 
 const fetchInformation = async () => {
