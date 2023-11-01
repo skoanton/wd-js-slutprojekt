@@ -72,14 +72,14 @@ padding: 0.225rem;
     border-radius: 50%;
 }
 .first-shadow{
-    left: -650px;
-    opacity: 50%;
+    left: -670px;
+    opacity: 10%;
     display: none;
 }
 
 .second-shadow{
-    left: -600px;
-    opacity: 20%;
+    left: -640px;
+    opacity: 5%;
     display: none;
 }
 
